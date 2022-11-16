@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Itask } from 'src/app/interfaces/itask';
 
 @Component({
@@ -8,6 +8,9 @@ import { Itask } from 'src/app/interfaces/itask';
 })
 export class TaskComponent implements OnInit {
   @Input() task!:Itask;
+  // ngOnChanges(){
+  //   return this.task.priority_level = "medium"
+  // }
 
   constructor() { }
 
