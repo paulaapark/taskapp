@@ -1,0 +1,69 @@
+<div class="mainDiv align" >
+    <form [formGroup]="userForm">
+        <div class="form-group">
+            <label for="title" class="col-form-label">Title: </label>
+            <input type="text" class="form-control" placeholder="Enter your task's title..." formControlName="title" id="title">
+        </div>
+        <div class="alert alert-danger" *ngIf="titleFormControl.invalid && titleFormControl.touched">
+            <div *ngIf="titleFormControl.errors?.['required']">Title is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="description" class="col-form-label">Description: </label>
+            <input type="text" class="form-control" placeholder="Enter your task's description..." formControlName="description" id="description">
+        </div>
+        <div class="alert alert-danger" *ngIf="descriptionFormControl.invalid && descriptionFormControl.touched">
+            <div *ngIf="descriptionFormControl.errors?.['required']">Description is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="date" class="col-form-label">Date: </label>
+            <input type="date" class="form-control" placeholder="Enter the date..." formControlName="date" id="date">
+        </div>
+        <div class="alert alert-danger" *ngIf="dateFormControl.invalid && dateFormControl.touched">
+            <div *ngIf="dateFormControl.errors?.['required']">Date is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="time" class="col-form-label">Time: </label>
+            <input type="time" class="form-control" placeholder="Enter the time..." formControlName="time" id="time">
+        </div>
+        <div class="alert alert-danger" *ngIf="timeFormControl.invalid && timeFormControl.touched">
+            <div *ngIf="timeFormControl.errors?.['required']">Time is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="priority_level" class="col-form-label">Priority Level: </label>
+            <select formControlName="priority_level">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>    
+        </div>
+        <div class="alert alert-danger" *ngIf="priority_levelFormControl.invalid && priority_levelFormControl.touched">
+            <div *ngIf="priority_levelFormControl.errors?.['required']">Priority Level is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="category" class="col-form-label">Category: </label>
+            <input type="text" class="form-control" placeholder="Enter your task's category..." formControlName="category" id="category">
+        </div>
+        <div class="alert alert-danger" *ngIf="categoryFormControl.invalid && categoryFormControl.touched">
+            <div *ngIf="categoryFormControl.errors?.['required']">Category is Required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="progress_level" class="col-form-label">Progress Level: </label>
+            <select formControlName="progress_level">
+                <option value="Not Started">Not Started</option>
+                <option value="Started">Started</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+        <div class="alert alert-danger" *ngIf="progress_levelFormControl.invalid && progress_levelFormControl.touched">
+            <div *ngIf="progress_levelFormControl.errors?.['required']">Progress Level is Required</div>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="userForm.invalid">Submit</button>
+    </form>
+</div>
